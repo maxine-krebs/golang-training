@@ -9,8 +9,8 @@ func TestInterfaces(t *testing.T) {
 	var (
 		s   = make(chan string)
 		ret []string
-		_   sync.WaitGroup
-		_   sync.WaitGroup
+		wg  sync.WaitGroup
+		wg2 sync.WaitGroup
 	)
 
 	go func(retPtr *[]string) {
@@ -18,6 +18,8 @@ func TestInterfaces(t *testing.T) {
 	}(&ret)
 
 	// Add WaitGroups to ensure "hello" executes first.
+	wg.Add(1)
+	wg2.Add(1)
 
 	go func() {
 		s <- "goodbye"
@@ -25,7 +27,12 @@ func TestInterfaces(t *testing.T) {
 
 	go func() {
 		s <- "hello"
+		wg.Done()
+		wg2.Done()
 	}()
+
+	wg.Wait()
+	wg2.Wait()
 
 	if len(ret) == 0 {
 		t.Error("nothing in ret")

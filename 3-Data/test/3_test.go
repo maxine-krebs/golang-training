@@ -1,6 +1,8 @@
 package test
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestPointers(t *testing.T) {
 	type dog struct {
@@ -8,11 +10,11 @@ func TestPointers(t *testing.T) {
 		age  int
 	}
 
-	setAge := func(d dog) {
+	setAge := func(d *dog) {
 		d.age = 5
 	}
 
-	d := dog{}
+	d := &dog{}
 	setAge(d)
 	if d.age != 5 {
 		t.Error("Dog is not 5")
@@ -23,7 +25,7 @@ func TestIteration(t *testing.T) {
 	x := []int{4, 5, 6, 7}
 
 	sum := 0
-	for el := range x {
+	for _, el := range x {
 		sum = sum + el
 	}
 

@@ -1,6 +1,7 @@
 package test
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -48,6 +49,22 @@ func (v x) X() int {
 }
 
 // Modify below this line
+
+func (v y) Y(i int) {
+	fmt.Println(i)
+}
+
+func (v z) X(i int) int {
+	return i
+}
+
+func (v z) Z(s string) (string, error) {
+	return s, nil
+}
+
+func (v a) A() A {
+	return v
+}
 
 // Modify above this line
 

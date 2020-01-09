@@ -9,14 +9,12 @@ func TestVariables(*testing.T) {
 	var a int
 	fmt.Println(a)
 	// Change below this line
-	a := 45
+	a = 45
 }
 
 func TestScope(t *testing.T) {
-	var a int = 1
-	{
-		var b int = 2
-	}
+	var a int = 2
+	var b int = 2
 
 	// Change above this line
 	if a != b {
@@ -25,9 +23,9 @@ func TestScope(t *testing.T) {
 }
 
 func TestAnonymous(t *testing.T) {
-	add := func(a, b int) {
-		a + b
-	}(1, 2)
+	add := func(a, b int) int {
+		return a + b
+	}
 
 	// Change above this line
 	ten := add(-10, 20)
@@ -38,9 +36,9 @@ func TestAnonymous(t *testing.T) {
 }
 
 func TestControl(t *testing.T) {
-	a := 1
-	b := 2
-	c := 4
+	a := 11
+	b := 12
+	c := 13
 
 	// Change above this line only
 
