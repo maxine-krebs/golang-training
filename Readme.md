@@ -1,6 +1,6 @@
 # Go Training
 
-![](https://github.com/maxine-krebs/golang-training/workflows/test/badge.svg)
+![](https://github.com/maxine-krebs/golang-training/workflows/Test/badge.svg)
 
 ## How to use this Training
 
