@@ -1,5 +1,7 @@
 # Go Training
 
+![](https://github.com/maxine-krebs/golang-training/workflows/test/badge.svg)
+
 ## How to use this Training
 
 Each module will have a `test/` folder. To verify your knowledge, please fork this repo and ensure that each `test/` passes CI.
